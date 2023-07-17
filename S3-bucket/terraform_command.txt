@@ -1,0 +1,11 @@
+--Terraform
+to initiate terraform
+> terraform init
+to see the changes to be applied
+> terraform plan
+to apply the infrastructure
+> terraform apply 
+to see the instance which is running
+> terraform show
+to destroy the instance
+> terraform destroy
