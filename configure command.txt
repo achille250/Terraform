@@ -1,0 +1,4 @@
+to confifure AWS CLI to your local machine (access key and secret key) IAM user
+> aws configure
+to check if the user is connected
+> aws sts get-caller-identity
