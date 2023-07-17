@@ -7,11 +7,15 @@ provider "aws" {
   # Create an S3 bucket
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-first-buckt"  
-  acl    = "private"
 
   tags = {
     Name = "S3-bucket"
   }
+}
+resource "aws_s3_bucket_acl" "my_bucket_acl" {
+  bucket = aws_s3_bucket.my_bucket.id
+
+  acl = "private"
 }
 
 # Create an IAM user
@@ -33,9 +37,11 @@ resource "aws_iam_user_policy_attachment" "cesar_user_policy" {
 # Output the access key and secret for the user
 output "access_key" {
   value = aws_iam_access_key.cesar_user_key.id
+  sensitive = true
 }
 
 output "secret_key" {
   value = aws_iam_access_key.cesar_user_key.secret
+  sensitive = true
 }
 
