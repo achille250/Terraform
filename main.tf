@@ -1,13 +1,23 @@
-provider "aws" {
-  region = "eu-west-3"
+# Create an IAM user
+resource "aws_iam_user" "cesar_user" {
+  name = "cesar"
+}
+# Create an IAM access key and secret for the user
+resource "aws_iam_access_key" "cesar_user_key" {
+  user = aws_iam_user.cesar_user.name
+}
+ # Output the access key and secret for the user
+output "access_key" {
+  value     = aws_iam_access_key.cesar_user_key.id
+  sensitive = true
 }
 
-resource "aws_instance" "ubuntu" {
-    ami = "ami-07d0cf3af28718ef8"
-    instance_type = "t2.micro"
+output "secret_key" {
+  value     = aws_iam_access_key.cesar_user_key.secret
+  sensitive = true
 
-    tags = {
-      Name="HelloTerraform"
-    }
-  
 }
+
+
+
+

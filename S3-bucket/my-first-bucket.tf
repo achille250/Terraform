@@ -1,7 +1,7 @@
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIA4P6KYPSARB6BUEOK"
-  secret_key = "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"
+  access_key ="#I have remove the access key for the security purpose#"
+  secret_key = "#I have remove the secret key for the security purpose#"
 } 
 
 # Create an S3 bucket
